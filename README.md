@@ -1,5 +1,5 @@
 # TOE_TMIN-TMAX
-Timing of emergence of CONUS summertime temperatures
+Timing of emergence of CONUS summertime temperatures using explainable neural networks
 
 ###### Under construction... ```[Python 3.9]```
 
