@@ -1,2 +1,2 @@
 # TOE_TMIN-TMAX
-Timing of emergence of C
+Timing of emergence of CONUS summertime temperatures
