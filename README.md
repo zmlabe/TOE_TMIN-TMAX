@@ -13,7 +13,7 @@ Zachary Labe - [Research Website](http://sites.uci.edu/zlabe/) - [@ZLabe](https:
 ## Data
 + ERA5 : [[DATA]](https://cds.climate.copernicus.eu/cdsapp#!/home)
     + Hersbach, H., Bell, B., Berrisford, P., Hirahara, S., Horányi, A., Muñoz‐Sabater, J., ... & Simmons, A. (2020). The ERA5 global reanalysis. Quarterly Journal of the Royal Meteorological Society, doi:10.1002/qj.3803 [[PUBLICATION]](https://rmets.onlinelibrary.wiley.com/doi/full/10.1002/qj.3803)
-+ CESM Large Ensemble Project (LENS) : [[DATA]](http://www.cesm.ucar.edu/projects/community-projects/LENS/data-sets.html)
++ CESM1 Large Ensemble Project (LENS1) : [[DATA]](http://www.cesm.ucar.edu/projects/community-projects/LENS/data-sets.html)
     + Kay, J. E and Coauthors, 2015: The Community Earth System Model (CESM) large ensemble project: A community resource for studying climate change in the presence of internal climate variability. Bull. Amer. Meteor. Soc., 96, 1333–1349, doi:10.1175/BAMS-D-13-00255.1 [[PUBLICATION]](http://journals.ametsoc.org/doi/full/10.1175/BAMS-D-13-00255.1)
 + CESM2 Large Ensemble Project (LENS2) : [[DATA]](https://www.cesm.ucar.edu/projects/community-projects/LENS2/)
     + Rodgers, K. B., Lee, S. S., Rosenbloom, N., Timmermann, A., Danabasoglu, G., Deser, C., ... & Yeager, S. G. (2021). Ubiquity of human-induced changes in climate variability. Earth System Dynamics Discussions, 1-22, doi:10.1175/BAMS-D-13-00255.1 [[PUBLICATION]](https://esd.copernicus.org/preprints/esd-2021-50/)
