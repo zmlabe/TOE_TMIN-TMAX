@@ -23,7 +23,7 @@ import statsmodels.api as sm
 ### Read in data files from server
 plt.rc('text',usetex=True)
 plt.rc('font',**{'family':'sans-serif','sans-serif':['Avant Garde']}) 
-directoryfigure = '/home/Zachary.Labe/Research/TOE_TMIN-TMAX/Figures/Scatter/' 
+directoryfigure = '/home/Zachary.Labe/Research/TOE_TMIN-TMAX/MS_Figures/' 
 
 ### Parameters
 letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n"]
@@ -119,7 +119,7 @@ def adjust_spines(ax, spines):
     else:
         ax.xaxis.set_ticks([]) 
         
-fig = plt.figure()
+fig = plt.figure(figsize=(8,9))
 ax = plt.subplot(111)
 
 adjust_spines(ax, ['left', 'bottom'])            
@@ -135,19 +135,21 @@ ax.tick_params(axis='y',labelsize=6,pad=1.5)
 
 line1 = slope_f1*np.arange(-3,3.1,0.1) + intercept_f1
 
-plt.scatter(var1_scatter,var2_scatter,marker='o',s=30,color='maroon',
-            alpha=0.4,edgecolors='maroon',linewidth=0,clip_on=False)
-plt.plot(np.arange(-3,3.1,0.1),line1,color='teal',linestyle='-',linewidth=3)
+plt.scatter(var1_scatter,var2_scatter,marker='o',s=30,color='teal',
+            alpha=0.4,edgecolors='teal',linewidth=0,clip_on=False)
+plt.plot(np.arange(-3,3.1,0.1),line1,color='k',linestyle='-',linewidth=3)
 
-plt.xticks(np.arange(-5,5.1,0.5),map(str,np.round(np.arange(-5,5.1,0.5),2)),fontsize=10)
-plt.yticks(np.arange(-5,5.1,0.5),map(str,np.round(np.arange(-5,5.1,0.5),2)),fontsize=10)
+plt.xticks(np.arange(-5,5.1,0.5),map(str,np.round(np.arange(-5,5.1,0.5),2)),fontsize=11)
+plt.yticks(np.arange(-5,5.1,0.5),map(str,np.round(np.arange(-5,5.1,0.5),2)),fontsize=11)
 plt.xlim([-3,3])
 plt.ylim([-1.5,1.5])
 
-plt.xlabel(r'\textbf{T2M Anomalies [$^{\circ}$C]}',fontsize=11,color='dimgrey')
-plt.ylabel(r'\textbf{Evaporation Rate Anomalies [mm/day]}',fontsize=11,color='dimgrey')
+plt.xlabel(r'\textbf{TAVG Anomalies [$^{\circ}$C]}',fontsize=11,color='k')
+plt.ylabel(r'\textbf{Evaporation Rate Anomalies [mm/day]}',fontsize=11,color='k')
 
-plt.text(-3,-1.5,r'\textbf{R=%s, p $<$ 0.001}' % np.round(r_value_f1,2),fontsize=11,color='maroon')
+plt.text(-2.97,-1.47,r'\textbf{R=%s, p $<$ 0.001}' % np.round(r_value_f1,2),fontsize=17,color='k')
+
+plt.text(3,1.5,r'\textbf{[a]}',fontsize=10,color='k')
 
 plt.tight_layout()
-plt.savefig(directoryfigure + 'Scatter_T2M-EVAP_SPEAR_MED_1921-1989_WesternCO.png',dpi=300)
+plt.savefig(directoryfigure + 'Scatter_T2M-EVAP_SPEAR_MED_1921-1989_WesternCO.png',dpi=600)

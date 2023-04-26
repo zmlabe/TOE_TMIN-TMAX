@@ -100,7 +100,7 @@ for mm in range(len(maetypen)):
     ###############################################################################
     ###############################################################################
     ### Graph for accuracy
-    labels = [r'\textbf{SPEAR_LOW}',r'\textbf{FLOR (LOW)}',
+    labels = [r'\textbf{SPEAR_LO}',r'\textbf{FLOR (LO)}',
               r'\textbf{CESM1-LE}', r'\textbf{CESM2-LE}',
               r'\textbf{MIROC6-LE}']
     

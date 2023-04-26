@@ -28,7 +28,7 @@ directoryfigure = '/home/Zachary.Labe/Research/TOE_TMIN-TMAX/MS_Figures/'
 ###############################################################################
 ###############################################################################
 ### Data preliminaries 
-modelGCMs = ['SPEAR_MED_Scenario','SPEAR_MED_Scenario','SPEAR_MED']
+modelGCMs = ['SPEAR_MED_NATURAL','SPEAR_MED_Scenario','SPEAR_MED_Scenario','SPEAR_MED']
 dataset_obs = 'NClimGrid_MEDS'
 lenOfPicks = len(modelGCMs)
 monthlychoice = 'JJA'
@@ -37,8 +37,9 @@ reg_name = 'US'
 level = 'surface'
 ###############################################################################
 ###############################################################################
-timeper = ['futureforcing','futureforcing','futureforcing']
-scenarioall = ['SSP1-1.9','SSP2-4.5','Historical + SSP5-8.5']
+timeper = ['naturalforcing','futureforcing','futureforcing','futureforcing']
+scenarioall = ['Natural','SSP119','SSP245','SSP585']
+scenarioalln = ['Natural','SSP1-1.9','SSP2-4.5','Historical + SSP5-8.5']
 ###############################################################################
 ###############################################################################
 rm_annual_mean = False
@@ -53,7 +54,7 @@ baseline = np.arange(1981,2010+1,1)
 ###############################################################################
 ###############################################################################
 window = 0
-yearsall = [np.arange(1921+window,2100+1,1),np.arange(1921+window,2100+1,1),
+yearsall = [np.arange(1921+window,2100+1,1),np.arange(1921+window,2100+1,1),np.arange(1921+window,2100+1,1),
             np.arange(1921+window,2100+1,1)]
 yearsobs = np.arange(1921+window,2022+1,1)
 ###############################################################################
@@ -109,8 +110,8 @@ for no in range(len(modelGCMs)):
 data = np.asarray(data_allq)
 
 ### Calculate historical baseline for calculating anomalies (and ensemble mean)
-historical = data[0]
-historicalyrs = yearsall[0]
+historical = data[1]
+historicalyrs = yearsall[1]
 
 yearhq = np.where((historicalyrs >= baseline.min()) & (historicalyrs <= baseline.max()))[0]
 historicalc = np.nanmean(np.nanmean(historical[:,yearhq,:,:],axis=1),axis=0)
@@ -184,10 +185,12 @@ ax.tick_params(axis='y',labelsize=6,pad=1.5)
 
 color = cmr.rainforest(np.linspace(0.00,0.8,len(aveall)))
 for i,c in zip(range(len(aveall)),color): 
+    if i == 0:
+        c = 'dimgrey'
     plt.fill_between(x=yearsall[i],y1=minens[i],y2=maxens[i],facecolor=c,zorder=1,
              alpha=0.4,edgecolor='none',clip_on=False)
     plt.plot(yearsall[i],meanens[i],linestyle='-',linewidth=2,color=c,
-             label=r'\textbf{%s}' % scenarioall[i],zorder=2,clip_on=False)
+             label=r'\textbf{%s}' % scenarioalln[i],zorder=2,clip_on=False)
 
 plt.plot(yearsobs,aveobs,linestyle='--',linewidth=1,color='k',
          dashes=(1,0.5),clip_on=False,zorder=30,label=r'\textbf{NClimGrid}')

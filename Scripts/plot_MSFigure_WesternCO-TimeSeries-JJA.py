@@ -137,7 +137,7 @@ for i in range(len(slicemonthn)):
         else:
             ax.xaxis.set_ticks([]) 
             
-    fig = plt.figure(figsize=(7,9))
+    fig = plt.figure(figsize=(8,9))
     ax = plt.subplot(311)
     
     adjust_spines(ax, ['left', 'bottom'])            
@@ -165,7 +165,7 @@ for i in range(len(slicemonthn)):
     plt.xlim([1920,1990])
     plt.ylim([-5,3])
     
-    plt.text(1990,3,r'\textbf{[%s]}' % letters[0],fontsize=10,color='k')
+    plt.text(1990,3,r'\textbf{[%s]}' % letters[1],fontsize=10,color='k')
     
     plt.title(r'\textbf{TMAX}',
                         color='dimgrey',fontsize=17)
@@ -205,7 +205,7 @@ for i in range(len(slicemonthn)):
     plt.xlim([1920,1990])
     plt.ylim([-5,3])
     
-    plt.text(1990,3,r'\textbf{[%s]}' % letters[1],fontsize=10,color='k')
+    plt.text(1990,3,r'\textbf{[%s]}' % letters[2],fontsize=10,color='k')
     
     plt.ylabel(r'\textbf{Baseline of 1981-2010 [$\bf{^\circ}$C]}',fontsize=11,
                           color='k')
@@ -241,7 +241,7 @@ for i in range(len(slicemonthn)):
     plt.xlim([1920,1990])
     plt.ylim([-5,3])
     
-    plt.text(1990,3,r'\textbf{[%s]}' % letters[2],fontsize=10,color='k')
+    plt.text(1990,3,r'\textbf{[%s]}' % letters[3],fontsize=10,color='k')
     
     plt.title(r'\textbf{TAVG}',
                         color='dimgrey',fontsize=17)

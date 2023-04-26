@@ -53,8 +53,8 @@ letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n"]
 ### Testing data for ANN --------------------------------------
 resolutionall = ['LOWS','MEDS','MEDS','LOWS','LOWS','LOWS']
 datasetsingleall = ['SPEAR_LOW','SPEAR_MED','SPEAR_MED_NATURAL','SPEAR_LOW','SPEAR_LOW','SPEAR_LOW']
-datasetnamelist = ['SPEAR_LOW_SSP585','SPEAR_MED_SSP585','SPEAR_MED_NATURAL',
-                   'SPEAR_LOW_SSP585','SPEAR_LOW_SSP585','SPEAR_LOW_SSP585']
+datasetnamelist = ['SPEAR_LO_SSP585','SPEAR_MED_SSP585','SPEAR_MED_NATURAL',
+                   'SPEAR_LO_SSP585','SPEAR_LO_SSP585','SPEAR_LO_SSP585']
 dataobsname = 'NClimGrid'
 yearsall = [np.arange(1921,2100+1,1)]
 monthlychoiceall = ['JJA']

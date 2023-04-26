@@ -96,7 +96,7 @@ plotmodels = np.asarray(seedsmin)
 ###############################################################################
 ###############################################################################
 ### Graph for accuracy
-labels = [r'\textbf{SPEAR-LOW-LE}',r'\textbf{FLOR-LE (LOW)}',
+labels = [r'\textbf{SPEAR-LO}',r'\textbf{FLOR-LE (LO)}',
           r'\textbf{CESM1-LE}', r'\textbf{CESM2-LE}',
           r'\textbf{MIROC6-LE}']
 
@@ -141,9 +141,9 @@ plt.yticks(np.arange(0,101,5),list(map(str,np.round(np.arange(0,101,5),2))),
             fontsize=10) 
 plt.ylim([0,15])
 
-plt.text(-0.4,-1.4,r'\textbf{%s}' % labels[0],fontsize=11,color='dimgrey',
+plt.text(-0.33,-1.4,r'\textbf{%s}' % labels[0],fontsize=11,color='dimgrey',
           ha='left',va='center')
-plt.text(0.55,-1.4,r'\textbf{%s}' % labels[1],fontsize=11,color='dimgrey',
+plt.text(0.57,-1.4,r'\textbf{%s}' % labels[1],fontsize=11,color='dimgrey',
           ha='left',va='center')
 plt.text(1.7,-1.4,r'\textbf{%s}' % labels[2],fontsize=11,color='dimgrey',
           ha='left',va='center')
