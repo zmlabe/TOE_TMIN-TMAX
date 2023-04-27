@@ -155,7 +155,7 @@ for mm in range(len(maetypen)):
     plt.text(3.65,-1.4,r'\textbf{%s}' % labels[4],fontsize=11,color='dimgrey',
               ha='left',va='center')
     
-    plt.text(4.4,13.6,r'\textbf{[%s]}' % letters[mm],fontsize=10,color='k')
+    plt.text(4.4,13.6,r'\textbf{[%s]}' % letters[mm+3],fontsize=10,color='k')
     plt.text(1.5,13,r'\textbf{%s}' % maetypes,fontsize=17,color='k')
     
         

@@ -25,7 +25,7 @@ plt.rc('font',**{'family':'sans-serif','sans-serif':['Avant Garde']})
 ### Parameters
 directorydata = '/work/Zachary.Labe/Research/TOE_TMIN-TMAX/Data/LRP/Regions/'
 years = np.arange(1921,2100+1,1)
-variq = 'TMIN'
+variq = 'T2M'
 directoryfigure = '/home/Zachary.Labe/Research/TOE_TMIN-TMAX/MS_Figures/' 
 land_only = False
 ocean_only = False
@@ -115,7 +115,7 @@ for mm in range(len(monthlychoiceq)):
     limit = np.arange(-0.1,0.101,0.001)
     barlim = np.round(np.arange(-0.1,0.101,0.05),2)
     cmap = cmr.fusion_r
-    label = r'\textbf{Relevance}'
+    label = r'\textbf{Relevance [%s]}' % variq
     
     fig = plt.figure(figsize=(10,7))
     ###############################################################################

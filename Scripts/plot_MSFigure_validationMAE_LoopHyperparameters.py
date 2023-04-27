@@ -61,8 +61,8 @@ elif maetype == 'valall':
 region = 'US'
 variq = 'T2M'
 months = 'JJA'
-dataset = 'SPEAR_MED'
-dataset_obs = 'NClimGrid_MEDS'
+dataset = 'SPEAR_LOW'
+dataset_obs = 'NClimGrid_LOWS'
 scores = np.load(directorydata + 'ANN_PredictTheYear_v2-LoopHyperparameters_%s_%s_%s-%s_%s.npz' % (variq,months,dataset,dataset_obs,region))
 mae = scores['mae_%s' % maetype]
 
@@ -144,7 +144,11 @@ for plo in range(len(hiddenall)):
     if any([plo==0,plo==4]):
         plt.ylabel(r'\textbf{MAE [years]}',color='k',fontsize=7)
         
-    fig.suptitle(r'\textbf{%s [%s]}'  % (dataset,maetypes),fontsize=20,color='dimgrey')
+    if dataset == 'SPEAR_LOW':
+        datasetn = 'SPEAR_LO'
+    else:
+        datasetn = dataset
+    fig.suptitle(r'\textbf{%s [%s]}'  % (datasetn,maetypes),fontsize=20,color='dimgrey')
 
 plt.tight_layout()
 plt.text(-10.35,-3.5,r'\textbf{Ridge Regularization [L$_{2}$]}',fontsize=8,color='k',

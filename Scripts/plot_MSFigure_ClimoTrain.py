@@ -199,7 +199,7 @@ lon2,lat2 = np.meshgrid(lons,lats)
 cs1 = m.pcolormesh(lon2,lat2,Xmean,vmin=10,vmax=30,latlon=True)
 cs1.set_cmap('twilight')
 
-ax.annotate(r'\textbf{Western}',xy=(0,0),xytext=(0.22,0.62),
+ax.annotate(r'\textbf{Western}',xy=(0,0),xytext=(0.19,0.62),
           textcoords='axes fraction',color='gold',fontsize=14,
           rotation=350,ha='center',va='center')
 ax.annotate(r'\textbf{Central}',xy=(0,0),xytext=(0.54,0.57),
@@ -208,6 +208,13 @@ ax.annotate(r'\textbf{Central}',xy=(0,0),xytext=(0.54,0.57),
 ax.annotate(r'\textbf{Eastern}',xy=(0,0),xytext=(0.85,0.62),
           textcoords='axes fraction',color='gold',fontsize=14,
           rotation=10,ha='center',va='center')
+
+ax.annotate(r'\textbf{W.}',xy=(0,0),xytext=(0.325,0.55),
+          textcoords='axes fraction',color='gold',fontsize=10,
+          rotation=353,ha='center',va='center')
+ax.annotate(r'\textbf{CO}',xy=(0,0),xytext=(0.3235,0.51),
+          textcoords='axes fraction',color='gold',fontsize=10,
+          rotation=353,ha='center',va='center')
 
 ax.annotate(r'\textbf{[%s]}' % (letters[0]),xy=(0,0),xytext=(0.0,1.05),
           textcoords='axes fraction',color='k',fontsize=9,
@@ -225,6 +232,19 @@ la2 = lat_bounds[1]-8.2
 lo1 = lon_bounds[0]
 lo2 = lon_bounds[1]
 m.drawgreatcircle(lo2, la2, lo2, la1,linewidth=4,color='gold',zorder=20,clip_on=False)
+
+### CO box
+la1 = 37
+la2 = 41
+lo1 = 360-108
+lo2 = 360-105
+lonsslice = np.linspace(lo1,lo2,lo2-lo1+1)
+latsslice = np.ones(len(lonsslice))*la2
+m.plot(lonsslice, latsslice, color='gold', linewidth=1.5, latlon=True,zorder=4)
+latsslice = np.ones(len(lonsslice))*la1
+m.plot(lonsslice, latsslice, color='gold', linewidth=1.5, latlon=True,zorder=4)
+m.drawgreatcircle(lo1, la1, lo1, la2,linewidth=1.5,color='gold',zorder=4)
+m.drawgreatcircle(lo2, la2, lo2, la1,linewidth=1.5,color='gold',zorder=4)
 
 parallels = np.arange(-90,91,5)
 meridians = np.arange(-180,180,15)
@@ -268,7 +288,7 @@ cs1.set_cmap('bone')
 ax.annotate(r'\textbf{[%s]}' % (letters[1]),xy=(0,0),xytext=(0.0,1.05),
           textcoords='axes fraction',color='k',fontsize=9,
           rotation=0,ha='center',va='center')
-ax.annotate(r'\textbf{Western}',xy=(0,0),xytext=(0.22,0.62),
+ax.annotate(r'\textbf{Western}',xy=(0,0),xytext=(0.19,0.62),
           textcoords='axes fraction',color='gold',fontsize=14,
           rotation=350,ha='center',va='center')
 ax.annotate(r'\textbf{Central}',xy=(0,0),xytext=(0.54,0.57),
@@ -277,6 +297,13 @@ ax.annotate(r'\textbf{Central}',xy=(0,0),xytext=(0.54,0.57),
 ax.annotate(r'\textbf{Eastern}',xy=(0,0),xytext=(0.85,0.62),
           textcoords='axes fraction',color='gold',fontsize=14,
           rotation=10,ha='center',va='center')
+
+ax.annotate(r'\textbf{W.}',xy=(0,0),xytext=(0.325,0.55),
+          textcoords='axes fraction',color='gold',fontsize=10,
+          rotation=353,ha='center',va='center')
+ax.annotate(r'\textbf{CO}',xy=(0,0),xytext=(0.3235,0.51),
+          textcoords='axes fraction',color='gold',fontsize=10,
+          rotation=353,ha='center',va='center')
 
 lat_bounds,lon_bounds = UT.regions('W_US')
 la1 = lat_bounds[0]+9.67
@@ -290,6 +317,19 @@ la2 = lat_bounds[1]-8.2
 lo1 = lon_bounds[0]
 lo2 = lon_bounds[1]
 m.drawgreatcircle(lo2, la2, lo2, la1,linewidth=4,color='gold',zorder=20,clip_on=False)
+
+### CO box
+la1 = 37
+la2 = 41
+lo1 = 360-108
+lo2 = 360-105
+lonsslice = np.linspace(lo1,lo2,lo2-lo1+1)
+latsslice = np.ones(len(lonsslice))*la2
+m.plot(lonsslice, latsslice, color='gold', linewidth=1.5, latlon=True,zorder=4)
+latsslice = np.ones(len(lonsslice))*la1
+m.plot(lonsslice, latsslice, color='gold', linewidth=1.5, latlon=True,zorder=4)
+m.drawgreatcircle(lo1, la1, lo1, la2,linewidth=1.5,color='gold',zorder=4)
+m.drawgreatcircle(lo2, la2, lo2, la1,linewidth=1.5,color='gold',zorder=4)
 
 parallels = np.arange(-90,91,5)
 meridians = np.arange(-180,180,15)
