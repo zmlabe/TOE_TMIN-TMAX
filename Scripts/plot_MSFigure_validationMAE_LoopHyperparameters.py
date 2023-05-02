@@ -51,7 +51,7 @@ directorydata = '/work/Zachary.Labe/Research/TOE_TMIN-TMAX/Data/Predictions/Loop
 directoryfigure = '/home/Zachary.Labe/Research/TOE_TMIN-TMAX/MS_Figures/' 
 
 ### Read in hyperparameters
-maetype = 'valall'
+maetype = 'vala'
 if maetype == 'vala':
     maetypes = '1921-1989'
 elif maetype == 'valb':
@@ -61,7 +61,7 @@ elif maetype == 'valall':
 region = 'US'
 variq = 'T2M'
 months = 'JJA'
-dataset = 'SPEAR_LOW'
+dataset = 'SPEARz_LOW'
 dataset_obs = 'NClimGrid_LOWS'
 scores = np.load(directorydata + 'ANN_PredictTheYear_v2-LoopHyperparameters_%s_%s_%s-%s_%s.npz' % (variq,months,dataset,dataset_obs,region))
 mae = scores['mae_%s' % maetype]

@@ -51,7 +51,7 @@ directorydata = '/work/Zachary.Labe/Research/TOE_TMIN-TMAX/Data/Predictions/Loop
 directoryfigure = '/home/Zachary.Labe/Research/TOE_TMIN-TMAX/Figures/Scores/Loop/'
 
 ### Read in hyperparameters
-maetype = 'vala'
+maetype = 'valall'
 if maetype == 'vala':
     maetypes = '1921-1989'
 elif maetype == 'valb':
@@ -96,7 +96,7 @@ plotmodels = np.asarray(seedsmin)
 ###############################################################################
 ###############################################################################
 ### Graph for accuracy
-labels = [r'\textbf{SPEAR-LO}',r'\textbf{FLOR-LE (LO)}',
+labels = [r'\textbf{SPEAR_LO}',r'\textbf{FLOR (LO)}',
           r'\textbf{CESM1-LE}', r'\textbf{CESM2-LE}',
           r'\textbf{MIROC6-LE}']
 

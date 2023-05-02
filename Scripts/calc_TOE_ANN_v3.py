@@ -103,17 +103,17 @@ for vv in range(len(variqq)):
     corrall.append(corrm)
     toeall.append(toem)
     
-### Sort the TOE calculations
-toe_annall = np.asarray(toeall).squeeze()
-cor_annall = np.asarray(corrall).squeeze()
+# ### Sort the TOE calculations
+# toe_annall = np.asarray(toeall).squeeze()
+# cor_annall = np.asarray(corrall).squeeze()
 
-toe_plot = toe_annall.copy()
-toe_plot[np.where(np.isnan(toe_plot))] = 0
+# toe_plot = toe_annall.copy()
+# toe_plot[np.where(np.isnan(toe_plot))] = 0
 
-### Save TOE calculations
-directorytoe = '/work/Zachary.Labe/Research/TOE_TMIN-TMAX/Data/Predictions/ToeFinal/'
-np.savez(directorytoe + 'TOE_v3-LoopFinal-ObsPred_%s_%s-%s_%s_SAMPLES-%s.npz' % (monthlychoice,dataset,dataset_obs,reg_name,SAMPLES),
-         toe_annall=toe_annall,toe_plot=toe_plot)
-np.savez(directorytoe + 'SpearmanCorr_v3-LoopFinal-ObsPred_%s_%s-%s_%s_SAMPLES-%s.npz' % (monthlychoice,dataset,dataset_obs,reg_name,SAMPLES),
-         cor_annall=cor_annall)
+# ### Save TOE calculations
+# directorytoe = '/work/Zachary.Labe/Research/TOE_TMIN-TMAX/Data/Predictions/ToeFinal/'
+# np.savez(directorytoe + 'TOE_v3-LoopFinal-ObsPred_%s_%s-%s_%s_SAMPLES-%s.npz' % (monthlychoice,dataset,dataset_obs,reg_name,SAMPLES),
+#          toe_annall=toe_annall,toe_plot=toe_plot)
+# np.savez(directorytoe + 'SpearmanCorr_v3-LoopFinal-ObsPred_%s_%s-%s_%s_SAMPLES-%s.npz' % (monthlychoice,dataset,dataset_obs,reg_name,SAMPLES),
+#          cor_annall=cor_annall)
                 
