@@ -50,7 +50,7 @@ ocean_only = False
 CONUS_only = True
 ###############################################################################
 ###############################################################################
-baseline = np.arange(1981,2010+1,1)
+baseline = np.arange(1921,1950+1,1)
 ###############################################################################
 ###############################################################################
 window = 0
@@ -120,6 +120,19 @@ historicalc = np.nanmean(np.nanmean(historical[:,yearhq,:,:],axis=1),axis=0)
 data_anom = []
 for no in range(len(modelGCMs)):
     anomq = data[no] - historicalc[np.newaxis,np.newaxis,:,:]
+    data_anom.append(anomq)
+
+### Calculate historical baseline for calculating anomalies (and ensemble mean)
+historical = data[1]
+historicalyrs = yearsall[1]
+
+yearhq = np.where((historicalyrs >= baseline.min()) & (historicalyrs <= baseline.max()))[0]
+historicalc = np.nanmean(np.nanmean(data[:,:,yearhq,:,:],axis=2),axis=1)
+
+### Calculate anomalies
+data_anom = []
+for no in range(len(modelGCMs)):
+    anomq = data[no] - historicalc[no,np.newaxis,np.newaxis,:,:]
     data_anom.append(anomq)
 
 ### Calculate CONUS average
@@ -206,7 +219,7 @@ plt.yticks(np.round(np.arange(-18,18.1,1),2),np.round(np.arange(-18,18.1,1),2))
 plt.xlim([1920,2100])
 plt.ylim([-3,8])
 
-plt.ylabel(r'\textbf{TAVG Anomaly [$^{\circ}$C] Relative to 1981-2010}',
+plt.ylabel(r'\textbf{TAVG Anomaly [$^{\circ}$C] Relative to %s-%s}' % (baseline.min(),baseline.max()),
            fontsize=10,color='k')
 
 

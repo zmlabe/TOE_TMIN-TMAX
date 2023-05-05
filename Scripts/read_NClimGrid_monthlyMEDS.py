@@ -262,7 +262,7 @@ def read_NClimGrid_monthlyMEDS(variq,directory,sliceperiod,sliceyear,sliceshape,
 # import calc_Utilities as UT
 # variq = 'T2M'
 # directory = '/work/Zachary.Labe/Data/'
-# sliceperiod = 'annual'
+# sliceperiod = 'JJA'
 # sliceyear = np.arange(1895,2022+1,1)
 # sliceshape = 3
 # slicenan = 'nan'

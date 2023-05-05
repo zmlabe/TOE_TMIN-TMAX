@@ -145,7 +145,7 @@ for mm in range(len(maetypen)):
      
     plt.yticks(np.arange(0,101,5),list(map(str,np.round(np.arange(0,101,5),2))),
                 fontsize=10) 
-    plt.ylim([0,15])
+    plt.ylim([0,35])
     
     plt.text(-0.25,-1.4,r'\textbf{%s}' % labels[0],fontsize=11,color='dimgrey',
               ha='left',va='center')
@@ -154,8 +154,8 @@ for mm in range(len(maetypen)):
     plt.text(1.9,-1.4,r'\textbf{%s}' % labels[2],fontsize=11,color='dimgrey',
               ha='left',va='center')
     
-    plt.text(2.45,13.6,r'\textbf{[%s]}' % letters[mm],fontsize=10,color='k')
-    plt.text(0.68,13,r'\textbf{%s}' % maetypes,fontsize=17,color='k')
+    plt.text(2.45,32,r'\textbf{[%s]}' % letters[mm],fontsize=10,color='k')
+    plt.text(0.68,31,r'\textbf{%s}' % maetypes,fontsize=17,color='k')
     
         
     plt.ylabel(r'\textbf{MAE [years]}',color='dimgrey',fontsize=12)

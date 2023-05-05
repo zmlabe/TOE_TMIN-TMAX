@@ -165,7 +165,6 @@ for lll in range(len(datasetsingleall)):
     ### Calculate statistics on observations
     slope, intercept, r, p, se = sts.linregress(yearsobs,Ypredobs)
     trendline = slope*yearsobs + intercept
-    print(r,p,se)
     
     ### Baseline
     baseq = np.where((yearsmodel >= 1921) & (yearsmodel <= 1950))[0]
@@ -185,6 +184,10 @@ for lll in range(len(datasetsingleall)):
     else:
         actual_TOE = yearsobs[int(ToE[0])]
     
+    print('\n')
+    print(variq,reg_name,actual_TOE,np.round(sts.spearmanr(yearsobs,Ypredobs)[0],2))
+    print(r,p,se)
+    print('\n\n')
     ###############################################################################
     ###############################################################################
     ###############################################################################

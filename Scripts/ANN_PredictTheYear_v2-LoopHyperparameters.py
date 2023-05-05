@@ -781,7 +781,7 @@ for ms in range(len(monthlychoiceall)):
                  mae_testall = mae_testallrp,
                  mae_valall = mae_valallrp,
                  COUNTER = COUNTER,
-                 hiddenall = hiddenall,
+                 # hiddenall = hiddenall,
                  ridgePenaltyall = ridgePenaltyall,
                  yearsobs = yearsobs,
                  yearmodel = yearsall[sis],
