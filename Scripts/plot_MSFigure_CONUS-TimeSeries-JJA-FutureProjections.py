@@ -109,18 +109,18 @@ for no in range(len(modelGCMs)):
     data_allq.append(data)
 data = np.asarray(data_allq)
 
-### Calculate historical baseline for calculating anomalies (and ensemble mean)
-historical = data[1]
-historicalyrs = yearsall[1]
+# ### Calculate historical baseline for calculating anomalies (and ensemble mean)
+# historical = data[1]
+# historicalyrs = yearsall[1]
 
-yearhq = np.where((historicalyrs >= baseline.min()) & (historicalyrs <= baseline.max()))[0]
-historicalc = np.nanmean(np.nanmean(historical[:,yearhq,:,:],axis=1),axis=0)
+# yearhq = np.where((historicalyrs >= baseline.min()) & (historicalyrs <= baseline.max()))[0]
+# historicalc = np.nanmean(np.nanmean(historical[:,yearhq,:,:],axis=1),axis=0)
 
-### Calculate anomalies
-data_anom = []
-for no in range(len(modelGCMs)):
-    anomq = data[no] - historicalc[np.newaxis,np.newaxis,:,:]
-    data_anom.append(anomq)
+# ### Calculate anomalies
+# data_anom = []
+# for no in range(len(modelGCMs)):
+#     anomq = data[no] - historicalc[np.newaxis,np.newaxis,:,:]
+#     data_anom.append(anomq)
 
 ### Calculate historical baseline for calculating anomalies (and ensemble mean)
 historical = data[1]

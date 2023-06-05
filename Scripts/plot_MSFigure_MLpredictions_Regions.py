@@ -229,7 +229,7 @@ for lll in range(len(datasetsingleall)):
         if actual_TOE < (yearsobs[-1]-yearThresh):
             plt.text(yearsobs[int(ToE[0])]+0.3,2046.5,r'\textbf{ToE}',color='crimson',ha='center',fontsize=7)
         else:
-            plt.text(yearsobs[int(ToE[0])]+0.3,2046.5,r'\textbf{ToE*}',color='crimson',ha='center',fontsize=7)
+            plt.text(yearsobs[int(ToE[0])]+0.3,2046.5,r'\textbf{ToE**}',color='crimson',ha='center',fontsize=7)
     # plt.plot(yearsobs,trendline,linewidth=2,color='crimson',clip_on=False)
     # plt.text(yearsobs[-1]+5,trendline[-1]-1,r'\textbf{R$^{2}$=%s}' % np.round(r**2,2),color='crimson',fontsize=9)
     
@@ -241,11 +241,11 @@ for lll in range(len(datasetsingleall)):
         
     iyears = np.where(Yactual<1990)[0]
     plt.text(1921,2082, r'\textbf{RMSE before 1990} = %s years' % (np.round(dSS.rmse(Ypred[:,iyears],Yactual[iyears]),decimals=1)),
-              fontsize=7,ha='left',color='teal')
+              fontsize=8,ha='left',color='teal')
     
     iyears = np.where(Yactual>=1990)[0]
-    plt.text(1921,2074, r'\textbf{RMSE after 1990} = %s years' % (np.round(dSS.rmse(Ypred[:,iyears],Yactual[iyears]),decimals=1)),
-              fontsize=7,ha='left',color='teal')
+    plt.text(1921,2073, r'\textbf{RMSE after 1990} = %s years' % (np.round(dSS.rmse(Ypred[:,iyears],Yactual[iyears]),decimals=1)),
+              fontsize=8,ha='left',color='teal')
     
     plt.xticks(np.arange(yearsall[0].min()-1,2101,25),map(str,np.arange(yearsall[0].min()-1,2101,25)),size=8)
     plt.yticks(np.arange(yearsall[0].min()-1,2101,25),map(str,np.arange(yearsall[0].min()-1,2101,25)),size=8)

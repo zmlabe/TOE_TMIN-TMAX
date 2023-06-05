@@ -139,8 +139,8 @@ plt.scatter(var1_scatter,var2_scatter,marker='o',s=30,color='teal',
             alpha=0.4,edgecolors='teal',linewidth=0,clip_on=False)
 plt.plot(np.arange(-3,3.1,0.1),line1,color='k',linestyle='-',linewidth=3)
 
-plt.xticks(np.arange(-5,5.1,0.5),map(str,np.round(np.arange(-5,5.1,0.5),2)),fontsize=11)
-plt.yticks(np.arange(-5,5.1,0.5),map(str,np.round(np.arange(-5,5.1,0.5),2)),fontsize=11)
+plt.xticks(np.arange(-5,5.1,0.5),map(str,np.round(np.arange(-5,5.1,0.5),2)),fontsize=13.5)
+plt.yticks(np.arange(-5,5.1,0.5),map(str,np.round(np.arange(-5,5.1,0.5),2)),fontsize=13.5)
 plt.xlim([-3,3])
 plt.ylim([-1.5,1.5])
 

@@ -204,11 +204,11 @@ for lll in range(len(datasetsingleall)):
         
     iyears = np.where(Yactual<1990)[0]
     plt.text(1921,2082, r'\textbf{RMSE before 1990} = %s years' % (np.round(dSS.rmse(Ypred[:,iyears],Yactual[iyears]),decimals=1)),
-              fontsize=5,ha='left',color='teal')
+              fontsize=8,ha='left',color='teal')
     
     iyears = np.where(Yactual>=1990)[0]
-    plt.text(1921,2077, r'\textbf{RMSE after 1990} = %s years' % (np.round(dSS.rmse(Ypred[:,iyears],Yactual[iyears]),decimals=1)),
-              fontsize=5,ha='left',color='teal')
+    plt.text(1921,2075, r'\textbf{RMSE after 1990} = %s years' % (np.round(dSS.rmse(Ypred[:,iyears],Yactual[iyears]),decimals=1)),
+              fontsize=8,ha='left',color='teal')
     
     plt.xticks(np.arange(yearsall[0].min()-1,2101,25),map(str,np.arange(yearsall[0].min()-1,2101,25)),size=8)
     plt.yticks(np.arange(yearsall[0].min()-1,2101,25),map(str,np.arange(yearsall[0].min()-1,2101,25)),size=8)

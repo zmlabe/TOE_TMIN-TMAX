@@ -160,8 +160,8 @@ for i in range(len(slicemonthn)):
     plt.plot(years,obs_max,linestyle='--',linewidth=2,color='maroon',
              dashes=(1,0.5),zorder=30,label=r'\textbf{NClimGrid}')
     
-    plt.xticks(np.arange(1920,2101,10),np.arange(1920,2101,10),fontsize=11)
-    plt.yticks(np.round(np.arange(-18,18.1,1),2),np.round(np.arange(-18,18.1,1),2),fontsize=11)
+    plt.xticks(np.arange(1920,2101,10),np.arange(1920,2101,10),fontsize=13)
+    plt.yticks(np.round(np.arange(-18,18.1,1),2),np.round(np.arange(-18,18.1,1),2),fontsize=13)
     plt.xlim([1920,1990])
     plt.ylim([-5,3])
     
@@ -200,8 +200,8 @@ for i in range(len(slicemonthn)):
     for line,text in zip(leg.get_lines(), leg.get_texts()):
         text.set_color(line.get_color())
     
-    plt.xticks(np.arange(1920,2101,10),np.arange(1920,2101,10),fontsize=11)
-    plt.yticks(np.round(np.arange(-18,18.1,1),2),np.round(np.arange(-18,18.1,1),2),fontsize=11)
+    plt.xticks(np.arange(1920,2101,10),np.arange(1920,2101,10),fontsize=13)
+    plt.yticks(np.round(np.arange(-18,18.1,1),2),np.round(np.arange(-18,18.1,1),2),fontsize=13)
     plt.xlim([1920,1990])
     plt.ylim([-5,3])
     
@@ -236,8 +236,8 @@ for i in range(len(slicemonthn)):
     plt.plot(years,obs_avg,linestyle='--',linewidth=2,color='maroon',
              dashes=(1,0.5),zorder=30,label=r'\textbf{NClimGrid}')
     
-    plt.xticks(np.arange(1920,2101,10),np.arange(1920,2101,10),fontsize=11)
-    plt.yticks(np.round(np.arange(-18,18.1,1),2),np.round(np.arange(-18,18.1,1),2),fontsize=11)
+    plt.xticks(np.arange(1920,2101,10),np.arange(1920,2101,10),fontsize=13)
+    plt.yticks(np.round(np.arange(-18,18.1,1),2),np.round(np.arange(-18,18.1,1),2),fontsize=13)
     plt.xlim([1920,1990])
     plt.ylim([-5,3])
     
