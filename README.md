@@ -29,7 +29,7 @@ Zachary Labe - [Research Website](https://zacklabe.com/) - [@ZLabe](https://twit
     + Slivinski, L. C., Compo, G. P., Whitaker, J. S., Sardeshmukh, P. D., Giese, B. S., McColl, C., ... & Wyszyński, P. (2019). Towards a more reliable historical reanalysis: Improvements for version 3 of the Twentieth Century Reanalysis system. Quarterly Journal of the Royal Meteorological Society, 145(724), 2876-2908. doi:10.1002/qj.3598 [[PUBLICATION]](https://rmets.onlinelibrary.wiley.com/doi/10.1002/qj.3598)
     
 ## Publications
-+ **[1]** **Labe, Z.M.**, N.C. Johnson, and T.L. Delworth (2023), Forced signals in United States summer temperatures revealed by explainable neural networks, *drafting*
++ **[1]** **Labe, Z.M.**, N.C. Johnson, and T.L. Delworth (2023), FChanges in United States summer temperatures revealed by explainable neural networks, *submitted*
 
 ## Conferences/Presentations
 + **[2]** **Labe, Z.M.** Using explainable AI to identify key regions of climate change in GFDL SPEAR large ensembles, *GFDL Lunchtime Seminar Series*, Princeton, NJ, USA (Mar 2023). [[Slides]](https://www.slideshare.net/ZacharyLabe/using-explainable-ai-to-identify-key-regions-of-climate-change-in-gfdl-spear-large-ensembles)
