@@ -61,11 +61,11 @@ plt.rc('font',**{'family':'sans-serif','sans-serif':['Avant Garde']})
 ###############################################################################
 ###############################################################################
 ### Testing data for ANN --------------------------------------
-resolution = 'LOWS'
+resolution = 'MEDS'
 datasetsingle = ['SPEAR_%s' % resolution[:3]]
 # datasetsingle = ['MIROC6_LE_LOWS']
 # datasetsingle = ['FLOR_%s' % resolution]
-dataset_obs = '20CRv3_%s' % resolution
+dataset_obs = 'NClimGrid_%s' % resolution
 yearsall = [np.arange(1921,2100+1,1)]
 monthlychoiceall = ['JJA']
 variq = 'T2M'
@@ -636,7 +636,7 @@ for ms in range(len(monthlychoiceall)):
         if sliceEns_only == True:
             data = data[:sliceEns_only_N,:,:,:]
             print('*Only kept %s ensembles*' % sliceEns_only_N)
-    z        
+            
 ###############################################################################
 ###############################################################################
 ############################################################################### 

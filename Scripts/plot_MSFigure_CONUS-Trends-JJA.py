@@ -36,7 +36,7 @@ datareader = True
 
 ### Trend time frame
 yearmin = 1921
-yearmax = 1950
+yearmax = 2022
 trendyears = np.arange(yearmin,yearmax+1,1)
 
 ### Read data
@@ -87,7 +87,7 @@ pval = np.empty((lat1o.shape[0],lon1o.shape[0]))
 h = np.empty((lat1o.shape[0],lon1o.shape[0]))
 for i in range(lat1o.shape[0]):
     for j in range(lon1o.shape[0]):
-        trendagain,h[i,j],pval[i,j],z = UT.mk_test(obsanom[yearq,i,j],0.1)
+        trendagain,h[i,j],pval[i,j],z = UT.mk_test(obsanom[yearq,i,j],0.05)
         
 pval[np.where(pval == 1.)] = 0.
 pval[np.where(np.isnan(pval))] = 1.

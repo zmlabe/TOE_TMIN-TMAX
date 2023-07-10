@@ -19,8 +19,8 @@ import scipy.stats as sts
 import read_SPEAR_MED as SP
 
 ### Parameters
-vari = 'TMAX'
-variSPEAR = 't_ref_max'
+vari = 'TMIN'
+variSPEAR = 't_ref_min'
 slicenan = 'nan'
 sliceperiod = 'none'
 sliceshape = 5
@@ -45,5 +45,5 @@ if vari == 'TMIN':
     post = data2.variables[variSPEAR][:] - 273.15
     data2.close()
     
-    comp = var[0,-1,-1,:,:]
+    comp = var[0,0,0,:,:]
             
