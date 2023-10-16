@@ -65,10 +65,11 @@ def calc_LRPModel(model,XXt,YYt,biasBool,annType,num_of_class,yearlabels,lrpRule
         analyzer = innvestigate.analyzer.relevance_based.relevance_analyzer.LRPEpsilon(model_nosoftmax, 
                                                                                         epsilon=1e-7,
                                                                                         bias=biasBool)
+        print('LRP RULE === Epsilon !!!')
         #######################################################################
     elif lrpRule == 'integratedgradient':
         analyzer = innvestigate.analyzer.gradient_based.IntegratedGradients(model_nosoftmax,steps=64)
-        print('LRP RULE === Epsilon !!!')
+        print('LRP RULE === Integrated Gradients !!!')
         #######################################################################
     else:
         print(ValueError('Wrong LRP RULE!!!!!!!!!'))

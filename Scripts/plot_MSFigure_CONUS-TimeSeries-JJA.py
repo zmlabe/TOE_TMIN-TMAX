@@ -140,6 +140,10 @@ for i in range(len(slicemonthn)):
     plt.xlim([1920,2022])
     plt.ylim([-4,4])
     
+    plt.fill_between(np.arange(1932,1938+1,1),-4,4,color='dimgrey',edgecolor=None,alpha=0.4)
+    plt.axvline(1991,linewidth=1,color='k',clip_on=False,
+                ymin=0,ymax=1)
+    
     plt.text(2021,4,r'\textbf{[%s]}' % letters[0],fontsize=10,color='k')
     
     plt.title(r'\textbf{%s: TMAX}' % slicemonthname,
@@ -171,7 +175,7 @@ for i in range(len(slicemonthn)):
              dashes=(1,0.5),clip_on=False,zorder=30,label=r'\textbf{NClimGrid}')
     
     leg = plt.legend(shadow=False,fontsize=12,loc='upper center',
-          bbox_to_anchor=(0.5,0.98),fancybox=True,ncol=3,frameon=False,
+          bbox_to_anchor=(0.5,1.015),fancybox=True,ncol=1,frameon=False,
           handlelength=1,handletextpad=0.5)
     for line,text in zip(leg.get_lines(), leg.get_texts()):
         text.set_color(line.get_color())
@@ -181,7 +185,13 @@ for i in range(len(slicemonthn)):
     plt.xlim([1920,2022])
     plt.ylim([-4,4])
     
+    plt.fill_between(np.arange(1932,1938+1,1),-4,4,color='dimgrey',edgecolor=None,alpha=0.4)
+    plt.axvline(1991,linewidth=1,color='k',clip_on=False,
+                ymin=0,ymax=1)
+    
     plt.text(2021,4,r'\textbf{[%s]}' % letters[1],fontsize=10,color='k')
+    plt.text(1929.5,4.05,r'\textbf{Dust Bowl}',fontsize=10,color='dimgrey')
+    plt.text(1990.8,4.05,r'\textbf{Pinatubo}',fontsize=10,color='k')
     
     plt.ylabel(r'\textbf{Baseline of 1981-2010 [$\bf{^\circ}$C]}',fontsize=11,
                           color='k')
@@ -217,6 +227,10 @@ for i in range(len(slicemonthn)):
     plt.yticks(np.round(np.arange(-18,18.1,2),2),np.round(np.arange(-18,18.1,2),2),fontsize=11)
     plt.xlim([1920,2022])
     plt.ylim([-4,4])
+    
+    plt.fill_between(np.arange(1932,1938+1,1),-4,4,color='dimgrey',edgecolor=None,alpha=0.4)
+    plt.axvline(1991,linewidth=1,color='k',clip_on=False,
+                ymin=0,ymax=1)
     
     plt.text(2021,4,r'\textbf{[%s]}' % letters[2],fontsize=10,color='k')
     

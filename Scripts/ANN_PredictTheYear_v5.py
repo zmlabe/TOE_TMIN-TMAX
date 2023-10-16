@@ -29,6 +29,7 @@ import cmocean as cmocean
 import calc_Utilities as UT
 import calc_dataFunctions as df
 import calc_Stats as dSS
+from sklearn.metrics import mean_absolute_error
 import calc_SegmentData as dSEG
 import calc_LRPclass_tf27_v2 as LRP
 import sys
@@ -110,6 +111,7 @@ if reg_name == 'US':
     biasBool = True
     if resolution == 'MEDS':
         hiddensList = [[10,10,10]]
+        # hiddensList = [[10]] # temporary for simple ANN
     elif resolution == 'LOWS':
         hiddensList = [[20,20,20]]
     elif resolution == 'HIGHS':
@@ -117,7 +119,7 @@ if reg_name == 'US':
     else:
         print(ValueError('This is the wrong resolution!!!'))
         sys.exit()
-    ridge_penalty = [0.001]
+    ridge_penalty = [0.001 ]
     actFun = 'relu'
     iterations = [500]
 elif any([reg_name=='W_US',reg_name=='Ce_US',reg_name=='E_US']):
@@ -756,6 +758,49 @@ for ms in range(len(monthlychoiceall)):
                                                 startYear,
                                                 classChunk,
                                                 yearsall[sis])
+        
+        if ridge_penalty[0] == 0.0:
+            #######################################################
+            #######################################################
+            #######################################################
+            ### Try considering RMSE before/after 1990  
+            yrerror = 1990
+               
+            iyearstesta = np.where(Ytest<yrerror)[0]
+            rma_test = np.round(dSS.rmse(YpredTest[iyearstesta,],Ytest[iyearstesta,0]),decimals=1)
+            
+            iyearstestb = np.where(Ytest>=yrerror)[0]
+            rmb_test = np.round(dSS.rmse(YpredTest[iyearstestb,],Ytest[iyearstestb,0]),decimals=1)
+            
+            iyearsvala = np.where(Yval<yrerror)[0]
+            rma_val = np.round(dSS.rmse(YpredVal[iyearsvala,],Yval[iyearsvala,0]),decimals=1)
+            
+            iyearsvalb = np.where(Yval>=yrerror)[0]
+            rmb_val = np.round(dSS.rmse(YpredVal[iyearsvalb,],Yval[iyearsvalb,0]),decimals=1)
+            
+            #######################################################
+            #######################################################
+            #######################################################
+            ### Try considering RMSE for all years 
+            rmall_test = np.round(dSS.rmse(YpredTest[:],Ytest[:,0]),decimals=1)
+            rmall_val = np.round(dSS.rmse(YpredVal[:],Yval[:,0]),decimals=1)
+            
+            #######################################################
+            #######################################################
+            #######################################################
+            ### Try considering RMSE before/after 1990   
+            mae_testa = np.round(mean_absolute_error(YpredTest[iyearstesta],Ytest[iyearstesta,0]),1)
+            mae_testb = np.round(mean_absolute_error(YpredTest[iyearstestb],Ytest[iyearstestb,0]),1)
+            
+            mae_vala = np.round(mean_absolute_error(YpredVal[iyearsvala],Yval[iyearsvala,0]),1)
+            mae_valb = np.round(mean_absolute_error(YpredVal[iyearsvalb],Yval[iyearsvalb,0]),1)
+            
+            #######################################################
+            #######################################################
+            #######################################################
+            ### Try considering MAE for all years 
+            mae_testall = np.round(mean_absolute_error(YpredTest[:],Ytest[:,0]),1)
+            mae_valall = np.round(mean_absolute_error(YpredVal[:],Yval[:,0]),1)
             
         ### Create final plot
         beginFinalPlot(YpredTrain,YpredTest,Ytrain,Ytest,testIndices,years,yearsobs,YpredObs)

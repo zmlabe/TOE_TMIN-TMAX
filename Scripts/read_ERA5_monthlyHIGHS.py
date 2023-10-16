@@ -63,13 +63,6 @@ def read_ERA5_monthlyHIGHS(variq,directory,sliceperiod,sliceyear,sliceshape,addc
     warnings.simplefilter(action='ignore', category=RuntimeWarning)
     
     ###########################################################################
-    ### Change variable names if needed
-    if variq == 'SNOW':
-        variq = 'SND'
-    elif variq == 'PRECT':
-        variq = 'P'
-    
-    ###########################################################################
     ### Read in data
     if level == 'surface':
         time = np.arange(1940,2022+1,1)
@@ -290,7 +283,7 @@ def read_ERA5_monthlyHIGHS(variq,directory,sliceperiod,sliceyear,sliceshape,addc
     elif any([variq=='T2M',variq=='SST',variq=='TMAX',variq=='TMIN',variq=='TS']):
         varshape = varshape - 273.15 # K to C
         print('Completed: Changed units (K to C)!')
-    elif variq == 'P':
+    elif any([variq=='P',variq=='PRECT',variq=='EVAP',variq=='WA',variq=='RUNOFF']):
         varshape = varshape*1000 # m/day to mm/day
         ### "Average Monthly Rate of Precipitation"
         print('*** CURRENT UNITS ---> [[ mm/day ]]! ***')
