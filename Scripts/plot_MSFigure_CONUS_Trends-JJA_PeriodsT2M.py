@@ -27,7 +27,6 @@ directoryfigure = '/home/Zachary.Labe/Research/TOE_TMIN-TMAX/MS_Figures/'
 ### Parameters
 monthq = ['JAN','FEB','MAR','ARP','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC']
 letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n"]
-experi1 = ['NClimGrid','SPEAR_MED','SPEAR_MED_NATURAL']
 sliceperiod = 'JJA'
 yearssat = np.arange(1921,2022+1,1)
 slicenan = 'nan'
@@ -94,12 +93,50 @@ def readData(variq,yearmin,yearmax):
     trend_spearm = np.nanmean(trend_spear,axis=0)
     trend_natural_spearm = np.nanmean(trend_natural_spear,axis=0)
     
-    return lat1s,lon1s,trendobs,trend_spearm,trend_natural_spearm,pval,h,trendagain
+    return lat1s,lon1s,trendobs,trend_spearm,trend_natural_spearm,pval,h,trendagain,trend_spear,trend_natural_spear
 
 ### Return data
-lat1s,lon1s,trendobsold,trend_spearmold,trend_natural_spearmold,pvalold,hold,trendagainold = readData('T2M',1921,1989)
-lat1s,lon1s,trendobsnew,trend_spearmnew,trend_natural_spearmnew,pvalnew,hnew,trendagainnew = readData('T2M',1990,2022)
+lat1s,lon1s,trendobsold,trend_spearmold,trend_natural_spearmold,pvalold,hold,trendagainold,trend_spearEold,trend_natural_spearEold = readData('T2M',1921,1989)
+lat1s,lon1s,trendobsnew,trend_spearmnew,trend_natural_spearmnew,pvalnew,hnew,trendagainnew,trend_spearEnew,trend_natural_spearEnew = readData('T2M',1990,2022)
 
+### Mask SPEAR for correlations
+mask = trendobsold.copy()
+mask[np.where(np.isnan(mask))] = 0.
+mask[np.where(mask != 0)] = 1.
+
+### Only consider CONUS
+trend_spearEold_mask = trend_spearEold * mask[-1]
+trend_spearEold_mask[np.where(trend_spearEold_mask == 0.)] = np.nan
+trend_natural_spearEold_mask = trend_natural_spearEold * mask[-1]
+trend_natural_spearEold_mask[np.where(trend_natural_spearEold_mask == 0.)] = np.nan
+
+trend_spearEnew_mask = trend_spearEnew * mask[-1]
+trend_spearEnew_mask[np.where(trend_spearEnew_mask == 0.)] = np.nan
+trend_natural_spearEnew_mask = trend_natural_spearEnew * mask[-1]
+trend_natural_spearEnew_mask[np.where(trend_natural_spearEnew_mask == 0.)] = np.nan
+
+### Calculate pattern correlations
+corr_spear_old = np.full((30),np.nan)
+corr_spear_new = np.full((30),np.nan)
+corr_natural_old = np.full((30),np.nan)
+corr_natural_new = np.full((30),np.nan)
+for eee in range(30):
+    corr_spear_old[eee] = UT.calc_spatialCorr(trendobsold,trend_spearEold_mask[eee],lat1s,lon1s,'yesnan')
+    corr_spear_new[eee] = UT.calc_spatialCorr(trendobsnew,trend_spearEnew_mask[eee],lat1s,lon1s,'yesnan')
+    corr_natural_old[eee] = UT.calc_spatialCorr(trendobsold,trend_natural_spearEold_mask[eee],lat1s,lon1s,'yesnan')
+    corr_natural_new[eee] = UT.calc_spatialCorr(trendobsnew,trend_natural_spearEnew_mask[eee],lat1s,lon1s,'yesnan')
+
+bestens_spear_old = np.argmax(corr_spear_old) + 1
+bestens_spear_new = np.argmax(corr_spear_new) + 1
+bestens_natural_old = np.argmax(corr_natural_old) + 1
+bestens_natural_new = np.argmax(corr_natural_new) + 1
+
+bestCorr_spear_old = np.nanmax(corr_spear_old)
+bestCorr_spear_new = np.nanmax(corr_spear_new)
+bestCorr_natural_old = np.nanmax(corr_natural_old)
+bestCorr_natural_new = np.nanmax(corr_natural_new)
+
+sys.exit()
 ###############################################################################
 ###############################################################################
 ###############################################################################
@@ -110,17 +147,23 @@ label = r'\textbf{TAVG Trend [$^{\circ}$C/decade]}'
 limit = np.arange(-1,1.01,0.05)
 barlim = np.round(np.arange(-1,1.1,0.5),2)
 
+bestensAll = [bestens_spear_old,bestens_spear_old,bestens_spear_old,bestens_spear_old,
+              bestens_spear_new,bestens_spear_new,bestens_spear_new,bestens_spear_new]
+bestCorrAll = [bestCorr_spear_old,bestCorr_spear_old,bestCorr_spear_old,bestCorr_spear_old,
+               bestCorr_spear_new,bestCorr_spear_new,bestCorr_spear_new,bestCorr_spear_new]
 plotdata = [trendobsold,trend_spearmold,trend_natural_spearmold,
             trendobsnew,trend_spearmnew,trend_natural_spearmnew]
-plotlat = [lat1s,lat1s,lat1s,
-           lat1s,lat1s,lat1s]
-plotlon = [lon1s,lon1s,lon1s,
-           lon1s,lon1s,lon1s]
-period = ['1921-1989','1921-1989','1921-1989',
-          '1990-2022','1990-2022','1990-2022']
+plotlat = [lat1s,lat1s,lat1s,lat1s,
+           lat1s,lat1s,lat1s,lat1s]
+plotlon = [lon1s,lon1s,lon1s,lon1s,
+           lon1s,lon1s,lon1s,lon1s]
+period = ['1921-1989','1921-1989','1921-1989','1921-1989',
+          '1990-2022','1990-2022','1990-2022','1990-2022']
+
+experi1 = ['NClimGrid','SPEAR_MED','SPEAR_MED_NATURAL','SPEAR_MED ENSEMBLE #']
 
 for i in range(len(plotdata)):
-    ax = plt.subplot(2,3,i+1)
+    ax = plt.subplot(2,4,i+1)
     
     var = plotdata[i]
     lat1 = plotlat[i]
@@ -147,12 +190,12 @@ for i in range(len(plotdata)):
     
     if i == 0:
         cs2 = m.contourf(lon2,lat2,pvalold,colors='None',hatches=['////////'],latlon=True)
-    elif i == 3:
+    elif i == 4:
         cs3 = m.contourf(lon2,lat2,pvalnew,colors='None',hatches=['////////'],latlon=True)
     
     cs1.set_cmap(cmocean.cm.balance)
     
-    if i < 3:
+    if i < 4:
         plt.title(r'\textbf{%s}' % experi1[i],fontsize=15,color='dimgrey')
     ax.annotate(r'\textbf{[%s]}' % (letters[i]),xy=(0,0),xytext=(0.0,1.07),
               textcoords='axes fraction',color='k',fontsize=9,
