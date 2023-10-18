@@ -105,14 +105,14 @@ mask[np.where(np.isnan(mask))] = 0.
 mask[np.where(mask != 0)] = 1.
 
 ### Only consider CONUS
-trend_spearEold_mask = trend_spearEold * mask[-1]
+trend_spearEold_mask = trend_spearEold * mask
 trend_spearEold_mask[np.where(trend_spearEold_mask == 0.)] = np.nan
-trend_natural_spearEold_mask = trend_natural_spearEold * mask[-1]
+trend_natural_spearEold_mask = trend_natural_spearEold * mask
 trend_natural_spearEold_mask[np.where(trend_natural_spearEold_mask == 0.)] = np.nan
 
-trend_spearEnew_mask = trend_spearEnew * mask[-1]
+trend_spearEnew_mask = trend_spearEnew * mask
 trend_spearEnew_mask[np.where(trend_spearEnew_mask == 0.)] = np.nan
-trend_natural_spearEnew_mask = trend_natural_spearEnew * mask[-1]
+trend_natural_spearEnew_mask = trend_natural_spearEnew * mask
 trend_natural_spearEnew_mask[np.where(trend_natural_spearEnew_mask == 0.)] = np.nan
 
 ### Calculate pattern correlations
@@ -126,33 +126,32 @@ for eee in range(30):
     corr_natural_old[eee] = UT.calc_spatialCorr(trendobsold,trend_natural_spearEold_mask[eee],lat1s,lon1s,'yesnan')
     corr_natural_new[eee] = UT.calc_spatialCorr(trendobsnew,trend_natural_spearEnew_mask[eee],lat1s,lon1s,'yesnan')
 
-bestens_spear_old = np.argmax(corr_spear_old) + 1
-bestens_spear_new = np.argmax(corr_spear_new) + 1
-bestens_natural_old = np.argmax(corr_natural_old) + 1
-bestens_natural_new = np.argmax(corr_natural_new) + 1
+bestens_spear_old = np.argmax(corr_spear_old)
+bestens_spear_new = np.argmax(corr_spear_new)
+bestens_natural_old = np.argmax(corr_natural_old)
+bestens_natural_new = np.argmax(corr_natural_new)
 
 bestCorr_spear_old = np.nanmax(corr_spear_old)
 bestCorr_spear_new = np.nanmax(corr_spear_new)
 bestCorr_natural_old = np.nanmax(corr_natural_old)
 bestCorr_natural_new = np.nanmax(corr_natural_new)
 
-sys.exit()
 ###############################################################################
 ###############################################################################
 ###############################################################################
 ### Plot subplot of different AMIPS to compare with SPEAR
-fig = plt.figure(figsize=(10,5))
+fig = plt.figure(figsize=(11,4))
 
 label = r'\textbf{TAVG Trend [$^{\circ}$C/decade]}'
 limit = np.arange(-1,1.01,0.05)
 barlim = np.round(np.arange(-1,1.1,0.5),2)
 
-bestensAll = [bestens_spear_old,bestens_spear_old,bestens_spear_old,bestens_spear_old,
-              bestens_spear_new,bestens_spear_new,bestens_spear_new,bestens_spear_new]
+bestensAll = [bestens_spear_old+1,bestens_spear_old+1,bestens_spear_old+1,bestens_spear_old+1,
+              bestens_spear_new+1,bestens_spear_new+1,bestens_spear_new+1,bestens_spear_new+1]
 bestCorrAll = [bestCorr_spear_old,bestCorr_spear_old,bestCorr_spear_old,bestCorr_spear_old,
                bestCorr_spear_new,bestCorr_spear_new,bestCorr_spear_new,bestCorr_spear_new]
-plotdata = [trendobsold,trend_spearmold,trend_natural_spearmold,
-            trendobsnew,trend_spearmnew,trend_natural_spearmnew]
+plotdata = [trendobsold,trend_spearmold,trend_natural_spearmold,trend_spearEold[bestens_spear_old,:,:]*mask,
+            trendobsnew,trend_spearmnew,trend_natural_spearmnew,trend_spearEnew[bestens_spear_new,:,:]*mask]
 plotlat = [lat1s,lat1s,lat1s,lat1s,
            lat1s,lat1s,lat1s,lat1s]
 plotlon = [lon1s,lon1s,lon1s,lon1s,
@@ -160,7 +159,7 @@ plotlon = [lon1s,lon1s,lon1s,lon1s,
 period = ['1921-1989','1921-1989','1921-1989','1921-1989',
           '1990-2022','1990-2022','1990-2022','1990-2022']
 
-experi1 = ['NClimGrid','SPEAR_MED','SPEAR_MED_NATURAL','SPEAR_MED ENSEMBLE #']
+experi1 = ['NClimGrid','SPEAR_MED','SPEAR_MED_NATURAL','SPEAR_MED Ensemble']
 
 for i in range(len(plotdata)):
     ax = plt.subplot(2,4,i+1)
@@ -186,6 +185,9 @@ for i in range(len(plotdata)):
         
     lon2,lat2 = np.meshgrid(lon1,lat1)
     
+    if any([i==3,i==7]):
+        var[var==0.0] = np.nan
+    
     cs1 = m.contourf(lon2,lat2,var,limit,extend='both',latlon=True)
     
     if i == 0:
@@ -196,17 +198,23 @@ for i in range(len(plotdata)):
     cs1.set_cmap(cmocean.cm.balance)
     
     if i < 4:
-        plt.title(r'\textbf{%s}' % experi1[i],fontsize=15,color='dimgrey')
-    ax.annotate(r'\textbf{[%s]}' % (letters[i]),xy=(0,0),xytext=(0.0,1.07),
-              textcoords='axes fraction',color='k',fontsize=9,
-              rotation=0,ha='center',va='center')
+        plt.title(r'\textbf{%s}' % experi1[i],fontsize=12,color='dimgrey',y=1.15)
+        
+    if any([i==3,i==7]):
+        ax.annotate(r'\textbf{[%s] Member \#%s; corr = %s}' % (letters[i],bestensAll[i],np.round(bestCorrAll[i],2)),xy=(0,0),xytext=(-0.04,1.07),
+                    textcoords='axes fraction',color='k',fontsize=9,
+                    rotation=0,ha='left',va='center')
+    else:
+        ax.annotate(r'\textbf{[%s]}' % (letters[i]),xy=(0,0),xytext=(0.0,1.07),
+                    textcoords='axes fraction',color='k',fontsize=9,
+                    rotation=0,ha='center',va='center')
     
-    if any([i==0,i==3]):
+    if any([i==0,i==4]):
         ax.annotate(r'\textbf{%s}' % period[i],xy=(0,0),xytext=(-0.13,0.5),
                       textcoords='axes fraction',color='k',fontsize=15,
                       rotation=90,ha='center',va='center')
     
-cbar_ax1 = fig.add_axes([0.305,0.08,0.4,0.03])                
+cbar_ax1 = fig.add_axes([0.313,0.08,0.4,0.03])                
 cbar1 = fig.colorbar(cs1,cax=cbar_ax1,orientation='horizontal',
                     extend='both',extendfrac=0.07,drawedges=False)
 cbar1.set_label(label,fontsize=10,color='k',labelpad=3)  
