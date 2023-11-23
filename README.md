@@ -32,5 +32,6 @@ Zachary Labe - [Research Website](https://zacklabe.com/) - [@ZLabe](https://twit
 + **[1]** **Labe, Z.M.**, N.C. Johnson, and T.L. Delworth (2023), Changes in United States summer temperatures revealed by explainable neural networks, *submitted*. [[PREPRINT]](https://doi.org/10.22541/essoar.168987129.98069596/v1)
 
 ## Conferences/Presentations
++ **[3]** **Labe, Z.M.**, N.C. Johnson, and T.L. Delworth. Distinguishing the regional emergence of United States summer temperatures between observations and climate model large ensembles, *23rd Conference on Artificial Intelligence for Environmental Science*, Baltimore, MD (Jan 2024). [[Abstract]](https://ams.confex.com/ams/104ANNUAL/meetingapp.cgi/Paper/431288)
 + **[2]** **Labe, Z.M.** Using explainable AI to identify key regions of climate change in GFDL SPEAR large ensembles, *GFDL Lunchtime Seminar Series*, Princeton, NJ, USA (Mar 2023). [[Slides]](https://www.slideshare.net/ZacharyLabe/using-explainable-ai-to-identify-key-regions-of-climate-change-in-gfdl-spear-large-ensembles)
 + **[1]** **Labe, Z.M.** Forced climate signals with explainable AI and large ensembles, Atmospheric and Oceanic Sciences Student/Postdoc Seminar, Princeton University, NJ, USA (Feb 2023). [[Slides]](https://www.slideshare.net/ZacharyLabe/forced-climate-signals-with-explainable-ai-and-large-ensembles)
