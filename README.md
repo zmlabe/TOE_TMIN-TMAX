@@ -29,7 +29,7 @@ Zachary Labe - [Research Website](https://zacklabe.com/) - [@ZLabe](https://twit
     + Slivinski, L. C., Compo, G. P., Whitaker, J. S., Sardeshmukh, P. D., Giese, B. S., McColl, C., ... & Wyszyński, P. (2019). Towards a more reliable historical reanalysis: Improvements for version 3 of the Twentieth Century Reanalysis system. Quarterly Journal of the Royal Meteorological Society, 145(724), 2876-2908. doi:10.1002/qj.3598 [[PUBLICATION]](https://rmets.onlinelibrary.wiley.com/doi/10.1002/qj.3598)
     
 ## Publications
-+ **[1]** **Labe, Z.M.**, N.C. Johnson, and T.L. Delworth (2023), Changes in United States summer temperatures revealed by explainable neural networks, *submitted*. [[PREPRINT]](https://doi.org/10.22541/essoar.168987129.98069596/v1)
++ **[1]** **Labe, Z.M.**, N.C. Johnson, and T.L. Delworth (2024), Changes in United States summer temperatures revealed by explainable neural networks. *Earth's Future*, DOI:10.1029/2023EF003981 [[HTML]](https://doi.org/10.1029/2023EF003981)[[SUMMARY]](https://zacklabe.com/climate-signals-and-explainable-ai/)[[BibTeX]](https://zacklabe.files.wordpress.com/2024/02/labejohnsondelworth_toe_2024ef_bibtex.pdf)
 
 ## Conferences/Presentations
 + **[5]** **Labe, Z.M.** Applications of machine learning for climate change and variability, *Department of Environmental Sciences Seminar*, Rutgers University, New Brunswick, NJ, USA (Feb 2023) (Invited).
